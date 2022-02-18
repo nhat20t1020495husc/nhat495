@@ -15,18 +15,21 @@ public class ptbac1 {
     double a,b;
     try
     {
-      System.out.println(" Nhap a : ");
-      System.out.println(" Nhap b : ");
-   
-      if(a==0) {
-        if (b==0) System.out.println("PT vo so nghiem ");
+      System.out.println("Nhap a : ");
+      System.out.println("Nhap b : ");
+      a=pt.nextDouble();
+      b=pt.nextDouble();
+      if( a ==0) {
+        if ( b ==0) System.out.println("PT vo so nghiem ");
         if (b!=0) System.out.println("PT vo nghiem ");
     }
     else
-        System.out.println("PT co nghiem " +(-b/a));
+        System.out.println("PT co nghiem " +(-b /a));
      }catch(Exception e)
         {
             System.out.println(e);
       }
+    }
 }
+
 
