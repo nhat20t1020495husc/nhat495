@@ -1,0 +1,12 @@
+package in;
+import java.util.Scanner;
+
+public class in {
+      public static void main(String[] args) {
+while (i<=10)
+{
+System.out.println(i);
+i++;
+}
+    }
+}
