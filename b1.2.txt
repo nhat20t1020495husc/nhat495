@@ -1,0 +1,75 @@
+
+package baitap1;
+import java.util.Scanner;
+public class Baitap1 {
+    public static void main(String[] args) {
+       Scanner bt=new Scanner (System.in);
+       try{  
+           int c=0;
+           System.out.println("Nhap nam : ");
+           int a=bt.nextInt();
+           while (true)
+           {   if (a>0) break;
+               else
+              {
+              System.out.println("Nhap sai!Nhap lai nam : ");
+              a=bt.nextInt();
+              }
+           }
+           
+           System.out.println("Nhap thang : ");
+           int b=bt.nextInt();
+           while (true)
+           {      
+             if (b>=1 && b<=12) break;
+               else
+              {
+              System.out.println("Nhap  sai!Nhap lai thang : ");
+              b=bt.nextInt();
+              }
+           }
+          if ((a%400)==0 || ((a%4)==0 && (a%100)!=0)) c=c+1;
+          switch(b)
+          {
+              case 1: System.out.println("Thang mot "+a);
+              break;
+              case 2: System.out.println("Thang hai "+a);
+              break;
+              case 3: System.out.println("Thang ba "+a);
+              break;
+              case 4: System.out.println("Thang tu "+a);
+              break;
+              case 5: System.out.println("Thang nam "+a);
+              break;
+              case 6: System.out.println("Thang sau "+a);
+              break;
+              case 7: System.out.println("Thang bay "+a);
+              break;
+              case 8: System.out.println("Thang tam "+a);
+              break;
+              case 9: System.out.println("Thang chin "+a);
+              break;
+              case 10: System.out.println("Thang muoi  "+a);
+              break;
+              case 11: System.out.println("Thang muoi mot "+a);
+              break;
+              case 12: System.out.println("Thang muoi hai "+a);
+              break;
+          }
+         if (b==1&&b==3&&b==5&&b==7&&b==8&&b==10&&b==12) System.out.println("31 days");
+         else
+         if (b==2) 
+         {
+             
+             System.out.println("thang 2 co " +(28+c) );
+         }
+           else
+           System.out.println("30 days");
+       } catch(Exception e)
+    {
+        System.out.println("Loi nhap !!!");
+    }  
+              
+    } 
+    
+}
