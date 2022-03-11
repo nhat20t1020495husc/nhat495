@@ -1,0 +1,28 @@
+
+package baitapmang;
+import  java.util.Random;
+import java.util.Scanner;
+public class bt2 {
+    public static void b2(int a[],int n)
+    {  
+        Scanner bt=new Scanner (System.in);
+        int s=0;
+        Random rand=new Random();
+        for (int i=0;i<n;i++)
+        {  
+           a[i]=rand.nextInt(50);
+            s+=a[i];
+        }
+         for (int i=0;i<n;i++)
+             System.out.println("Gia tri a["+i+"] = "+a[i]);
+         System.out.println("- Trung binh cong cua mang la "+(s/n));
+    }
+    public static void main(String[] args) {
+        System.out.println("Nhap so phan tu mang :");
+        Scanner bt=new Scanner (System.in);
+      int  n=bt.nextInt();
+     int a[]=new int [n];
+     b2(a,n);
+     
+    }
+}  
