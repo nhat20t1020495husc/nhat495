@@ -1,0 +1,32 @@
+
+package javaapplication1;
+import java.util.Scanner;
+
+public class baitap4 {
+    public static void c(){
+         int a, b;
+        double nghiem;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nh?p vào s? a: ");
+        a = scanner.nextInt();
+        System.out.println("Nh?p vào s? b: ");
+        b = scanner.nextInt();
+        System.out.println("Phuong trình b?n v?a nh?p vào là: " + a + "x + " + b + " = 0");
+        if (a == 0) {
+            if (b == 0) {
+                System.out.println("Phuong trình này có vô s? nghi?m.");
+            } else {
+                System.out.println("Phuong trình vô nghi?m.");
+            }
+        } else {
+            nghiem = (double) -b / a;  
+            System.out.println("Phuong trình có nghi?m x = " +nghiem + ".");
+        }
+    }
+ 
+
+    public static void main(String[] args) {
+        c();
+    }
+}
+       

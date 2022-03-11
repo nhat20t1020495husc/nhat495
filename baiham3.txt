@@ -1,0 +1,30 @@
+
+package javaapplication1;
+import java.util.Scanner;
+
+public class baitap3 {
+      public static void a(String s)
+    {  
+         System.out.println(s);
+    }
+     public static void main(String[] args) {
+     Scanner bt2=new Scanner (System.in);
+     System.out.println("Nhap so lan thuc hien : ");
+     int n;
+     do
+     { 
+           n=bt2.nextInt();
+     }while (n<0);
+     String s ;
+     for (int i=1;i<=n;i++)
+     {
+     System.out.println("Nhap chuoi lan "+i+" : ");
+     s=bt2.next();
+     System.out.println("Xuat chuoi lan "+i+" : ");
+     a(s);
+     } 
+     
+     
+ 
+    }
+}

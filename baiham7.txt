@@ -1,0 +1,100 @@
+
+package javaapplication1;
+import java.util.Scanner;
+import static javaapplication1.baitap5.PTBac2;
+public class baitap7 {
+     public static void PT1(){
+         int a, b;
+        double nghiem;
+        
+        Scanner scanner = new Scanner(System.in);
+         
+        System.out.println("Nh?p vào s? a: ");
+        a = scanner.nextInt();
+        System.out.println("Nh?p vào s? b: ");
+        b = scanner.nextInt();
+        System.out.println("Phuong trình b?n v?a nh?p vào là: " + a + "x + " + b + " = 0");
+        if (a == 0) {
+            if (b == 0) {
+                System.out.println("Phuong trình này có vô s? nghi?m.");
+            } else {
+                System.out.println("Phuong trình vô nghi?m.");
+            }
+        } else {
+            nghiem = (double) -b / a;  
+            System.out.println("Phuong trình có nghi?m x = " +nghiem + ".");
+        }
+    }
+
+    public static void PT2() {
+       Scanner bt=new Scanner (System.in);
+
+      System.out.print("Nh?p h? s? b?c 2, a = ");
+        float a = bt.nextFloat();
+        System.out.print("Nh?p h? s? b?c 1, b = ");
+        float b = bt.nextFloat();
+        System.out.print("Nh?p h?ng s? t? do, c = ");
+        float c = bt.nextFloat();
+        System.out.println("PT co dang "+a+"x^2+ "+b+"x+"+c+" = 0");
+          if (a == 0) {
+            if (b == 0) {
+                System.out.println("Phuong trình vô nghi?m!");
+            } else {
+                System.out.println("Phuong trình có m?t nghi?m: "
+                        + "x = " + (-c / b));
+            }
+         
+        }
+    
+        float delta = b*b - 4*a*c;
+        float x1;
+        float x2;
+       
+        if (delta > 0) {
+            x1 = (float) ((-b + Math.sqrt(delta)) / (2*a));
+            x2 = (float) ((-b - Math.sqrt(delta)) / (2*a));
+            System.out.println("Phuong trình có 2 nghi?m là: "
+                    + "x1 = " + x1 + " và x2 = " + x2);
+        } else if (delta == 0) {
+            x1 = (-b / (2 * a));
+            System.out.println("Phuong trình có nghi?m kép: "
+                    + "x1 = x2 = " + x1);
+        } else {
+            System.out.println("Phuong trình vô nghi?m!");
+        }
+    }
+    public static void main(String []args)
+    {
+        do{
+            int d;
+              Scanner bt=new Scanner (System.in);
+        int n;
+        System.out.print("Nhap lua chon (1-Giai pt bac nhat ||2-Giai pt bac hai ) :");
+        do
+        {
+          n=bt.nextInt();
+        }while (n<1 ||n>2);
+        if (n==2)  {
+            System.out.println();
+            System.out.println("=====  Giai pt bac nhai =======");
+            PT2();
+        }
+        if (n==1)  {
+            System.out.println();
+            System.out.println("=====  Giai pt bac nhat =========");
+            PT1();
+        }
+        System.out.println();
+        System.out.println();
+    System.out.print("- Ban co muon ket thuc chuong trinh (0-Tiep tuc ,1-Dong y) ?" );
+     do
+     {
+        d=bt.nextInt();  
+     }while(0<d||d>1);
+     if (d==1) break;
+     else 
+         continue;
+   }    while(true);
+        
+}
+}

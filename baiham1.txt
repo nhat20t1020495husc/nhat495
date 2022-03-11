@@ -1,0 +1,13 @@
+
+package javaapplication1;
+public class baitap1 {
+
+    public static void a()
+    {
+       System.out.println("Lap trinh Java 2021");
+    }
+    
+    public static void main(String[] args) {
+      a();
+    }  
+}

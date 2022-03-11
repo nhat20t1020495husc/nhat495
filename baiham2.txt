@@ -1,0 +1,18 @@
+
+package javaapplication1;
+import java.util.Scanner;
+
+public class baitap2 {
+     public static void a(String s)
+    {
+       System.out.println(s);
+    }
+    
+    public static void main(String[] args) {
+     Scanner bt2=new Scanner (System.in);
+     System.out.println("Nhap chuoi : ");
+     String s=bt2.next();
+     System.out.println("Xuat chuoi : ");
+      a(s);
+    }
+}
