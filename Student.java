@@ -1,65 +1,64 @@
 
-package laptrinhhuongdoituong;
-public class Student extends Person {
-    String ten,ID,phone,email;
-
-    public Student(String ten, String ID, String phone, String email, String ngay, String sex, String mau) {
-        super(ngay, sex, mau);
-        this.ten = ten;
-        this.ID = ID;
-        this.phone = phone;
-        this.email = email;
-    }
+package cau1;
+import java.util.Scanner;
+public class Student  extends Person{
+    String ID;
+    int nam_nhaphoc;
 
     public Student() {
     }
 
-    public Student(String ten, String ID, String phone, String email) {
-        this.ten = ten;
+    public Student(String ID, int nam_nhaphoc) {
         this.ID = ID;
-        this.phone = phone;
-        this.email = email;
+        this.nam_nhaphoc = nam_nhaphoc;
     }
 
-    public String getTen() {
-        return ten;
+    public Student(String ID, int nam_nhaphoc, String ten, char gt, int namsinh) {
+        super(ten, gt, namsinh);
+        this.ID = ID;
+        this.nam_nhaphoc = nam_nhaphoc;
     }
 
     public String getID() {
         return ID;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-    public void setTen(String ten) {
-        this.ten = ten;
+    public int getNam_nhaphoc() {
+        return nam_nhaphoc;
     }
 
     public void setID(String ID) {
         this.ID = ID;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setNam_nhaphoc(int nam_nhaphoc) {
+        this.nam_nhaphoc = nam_nhaphoc;
     }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void nhapHS()
+    {  Scanner c1=new Scanner(System.in);
+        nhap();
+        System.out.println("- Nhap studentID : ");
+      ID=c1.nextLine();
+      System.out.println("- Nhap nam nhap hoc : ");
+      nam_nhaphoc=c1.nextInt();
     }
-
-    @Override
-    public String toString() {
-        return "Student{" + "ten=" + ten + ", ID=" + ID + ", phone=" + phone + ", email=" + email ;
-    }
-    public double paytax(double a,int b,int c)
+    public void xuatHS()
     {
-        if (a>=11000000)
-         return (float) (0.5/100)*a*(c-b);
-        return 0;
-    }   
+        xuat();
+        System.out.println("+ StudentID :"+ID);
+        System.out.println("+ Nam nhap hoc  :"+nam_nhaphoc);
+    }
+    public int timkiemtheoten(String a)
+    {  
+        if (a.equals(this.getTen()))
+            return 1;
+        else
+            return 0;
+    }
+    public void timkiemnamsinh(int a)
+    {
+       
+        if (a==this.getNamsinh())
+            System.out.println(this);
+    }
 }
