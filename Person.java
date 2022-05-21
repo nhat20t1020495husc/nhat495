@@ -1,79 +1,56 @@
 
-package cau2;
+import java.util.Comparator;
+import java.util.Date;
 
 
-import java.util.Scanner;
-import java.io.Serializable;
-
-public class Person implements Serializable,Comparable<Person>,Cloneable{
+public abstract class Person {
     String name;
-    char gender;
-    int namsinh;
-
-    @Override
-    public int compareTo(Person o) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
+    Date birthday;
+    String gender;
 
     public Person() {
     }
 
-    public Person(String name, char gender, int namsinh) {
+    public Person(String name, Date birthday, String gender) {
         this.name = name;
+        this.birthday = birthday;
         this.gender = gender;
-        this.namsinh = namsinh;
     }
 
     public String getName() {
         return name;
     }
 
-    public char getGender() {
-        return gender;
-    }
-
-    public int getNamsinh() {
-        return namsinh;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setGender(char gender) {
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public void setNamsinh(int namsinh) {
-        this.namsinh = namsinh;
-    }
-    void nhap(){
-     Scanner bt=new Scanner(System.in);
-        System.out.println("- Nhap ten : ");
-        name=bt.nextLine();
-        System.out.println("- Nhap gioi tinh(1-Nam ,2-Nu): ");
-        gender=bt.next().charAt(gender);
-        System.out.println("- Nhap nam sinh : ");
-        namsinh=bt.nextInt();
-    }
-    void xuat(){
-        System.out.println("+ Ten : "+name);
-        if(gender=='1') System.out.println("- Gioi tinh : Nam ");
-        else 
-           System.out.println("+ Gioi tinh : Nu ");
-        
-        System.out.println("+ Nam sinh : "+namsinh);
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone(); 
     }
 
     @Override
     public String toString() {
-        return "Person{" + "name=" + name + ", gender=" + gender + ", namsinh=" + namsinh + '}';
+        return "Person{" + "name=" + name + ", birthday=" + birthday + ", gender=" + gender + '}';
     }
-    
-}
 
+   
+   
+
+    
+   
+
+   
+}
