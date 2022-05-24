@@ -335,8 +335,8 @@ public class QuanLySV extends javax.swing.JFrame {
          model1.setRowCount(0);
          for (Student obj : list) {
             Object[] row =new Object[]{
-             obj.getStudentID(),obj.getName(),obj.getGender(),df.format(obj.getBirthday()),obj.getMajor(),
-            df.format(obj.getEnrolledDate())};
+          obj.getStudentID(),obj.getName(),obj.getGender(),df.format(obj.getBirthday()),obj.getMajor(),
+          df.format(obj.getEnrolledDate())};
         model1.addRow(row);
      }
      }
@@ -348,59 +348,29 @@ public class QuanLySV extends javax.swing.JFrame {
          s.setBirthday(ngaysinh.getDate());
          s.setMajor(nganh.getText());
          s.setEnrolledDate(ngaynhaphc.getDate());
+          if (ma.getText().equals("") ||ten.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(new Panel(), "LOI NHAP THONG TIN", "THONG BAO ",
+							JOptionPane.ERROR_MESSAGE);
+        }
+        else
          list.add(s);
          
      }
-    public void getDataFromTable(){
-        int i= BangSV.getSelectedRow();
-        Student s=list.get(i);
-        ma.setText(s.getStudentID().toString());
-        ten.setText(s.getName().toString());
-        gioitinh.setSelectedItem(s.getGender());
-         ngaysinh.setDate(s.getBirthday());
-         nganh.setText(s.getMajor());
-         ngaynhaphc.setDate(s.getEnrolledDate());
-        
-    }
+     
+       
     private void ThemSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemSVActionPerformed
-//
-//        Student obj = new Student(ma.getText(),
-//                            nganh.getText(),
-//                            ngaynhaphc.getDate(),
-//                            ten.getText(),
-//                            ngaysinh.getDate(), 
-//                            gioitinh.getSelectedItem().toString());
-//        
-//        DefaultTableModel model1=(DefaultTableModel) BangSV.getModel();
-//        SimpleDateFormat df= new SimpleDateFormat ("dd-MM-yyyy", Locale.ENGLISH);
-//        if (ma.getText().equals("") ||ten.getText().equals(""))
-//        {
-//            JOptionPane.showMessageDialog(new Panel(), "LOI NHAP THONG TIN", "THONG BAO ",
-//							JOptionPane.ERROR_MESSAGE);
-//        }
-//        else{
-//        model1.insertRow(model1.getRowCount(),new Object[]{ 
-//            obj.getStudentID(),obj.getName(),obj.getGender(),df.format(obj.getBirthday()),obj.getMajor(),
-//            df.format(obj.getEnrolledDate())
-//        });
-//                ma.setText("");
-//                ten.setText("");
-//                gioitinh.setToolTipText("");
-//                 Date date = null;
-//                ngaysinh.setDate(date);
-//                nganh.setText("");
-//                ngaynhaphc.setDate(date);
-//        }      
+
           addStudent();
-          
-              ma.setText("");
-                ten.setText("");
-                gioitinh.setToolTipText("");
-                 
-                ngaysinh.setDate(null);
-                nganh.setText("");
-                ngaynhaphc.setDate(null);
+            ma.setText("");
+            ten.setText("");
+            gioitinh.setToolTipText("");
+            ngaysinh.setDate(null);
+            nganh.setText("");
+            ngaynhaphc.setDate(null);
           fillToTable();
+          
+   
     }//GEN-LAST:event_ThemSVActionPerformed
 
     private void SuaSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuaSVActionPerformed
@@ -435,7 +405,6 @@ public class QuanLySV extends javax.swing.JFrame {
                                         "THONG BAO ", 
                                         JOptionPane.ERROR_MESSAGE);
 	   }
-//         fillTable();
     }//GEN-LAST:event_SuaSVActionPerformed
 
     private void XoaSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XoaSVActionPerformed
@@ -447,14 +416,15 @@ public class QuanLySV extends javax.swing.JFrame {
 						" THONG BAO XAC NHAN", 
                                                 JOptionPane.YES_NO_OPTION);
         if (output == JOptionPane.YES_OPTION) {
-//		model1.removeRow(s);
-//		for (int i = 0; i < BangSV.getRowCount(); i++) {
-//		     BangSV.setValueAt(i + 1, i, 0);
-//			}
-                {
-                    list.remove(s);
-                    fillToTable();
-                }
+
+             list.remove(s);
+            ma.setText("");
+            ten.setText("");
+            gioitinh.setToolTipText("");
+            ngaysinh.setDate(null);
+            nganh.setText("");
+            ngaynhaphc.setDate(null);
+            fillToTable();     
         }
         else {
 		JOptionPane.showMessageDialog(new Panel(), "Loi !!!",
@@ -464,15 +434,8 @@ public class QuanLySV extends javax.swing.JFrame {
     }//GEN-LAST:event_XoaSVActionPerformed
 
     private void SXtheotenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SXtheotenActionPerformed
-       
-//       Collections.sort(list, new Comparator<Student>() {           
-//           public int compare(Student o1,Student o2){
-//               return o1.getName().compareTo(o2.getName());
-//           }
-//       });
-//       fillTable();
-      
-//       fillTable();
+
+
       Comparator<Student> comparator =new Comparator<Student>() {
           @Override
           public int compare(Student o1, Student o2) {
@@ -501,16 +464,16 @@ public class QuanLySV extends javax.swing.JFrame {
     }//GEN-LAST:event_SXtheongaysinhActionPerformed
 
     private void BangSVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BangSVMouseClicked
-           DefaultTableModel model1=(DefaultTableModel) BangSV.getModel();
-        int i = BangSV.getSelectedRow();
-        				ma.setText(model1.getValueAt(i, 0).toString());
-				ten.setText(model1.getValueAt(i, 1).toString());
-				gioitinh.setToolTipText(model1.getValueAt(i, 2).toString());
-				//ngaysinh.setDateFormatString(model1.getValueAt(i, 4).toString());
-                                ngaysinh.setDateFormatString(model1.getValueAt(i, 3).toString());
-				nganh.setText(model1.getValueAt(i, 4).toString());
-				ngaynhaphc.setDateFormatString( model1.getValueAt(i, 5).toString());
-//            getDataFromTable();
+            int i= BangSV.getSelectedRow();
+        Student s=list.get(i);
+        ma.setText(s.getStudentID().toString());
+        ten.setText(s.getName().toString());
+        gioitinh.setSelectedItem(s.getGender());
+         ngaysinh.setDate(s.getBirthday());
+         nganh.setText(s.getMajor());
+         ngaynhaphc.setDate(s.getEnrolledDate());
+        
+
     }//GEN-LAST:event_BangSVMouseClicked
 
     private void DocDuLieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocDuLieuActionPerformed
